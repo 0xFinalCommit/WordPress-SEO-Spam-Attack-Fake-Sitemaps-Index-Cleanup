@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://protechsecure.ca/wp-includes/sitemap-discover.xml</loc>
+        <lastmod>2026-01-18</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://protechsecure.ca/wp-includes/sitemap-general.xml</loc>
+        <lastmod>2026-01-18</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://protechsecure.ca/wp-includes/sitemap-hype.xml</loc>
+        <lastmod>2026-01-18</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://protechsecure.ca/wp-includes/sitemap-insights.xml</loc>
+        <lastmod>2026-01-18</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://protechsecure.ca/wp-includes/sitemap-knowledge.xml</loc>
+        <lastmod>2026-01-18</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://protechsecure.ca/wp-includes/sitemap-newsfeed.xml</loc>
+        <lastmod>2026-01-18</lastmod>
+    </sitemap>
+</sitemapindex>
