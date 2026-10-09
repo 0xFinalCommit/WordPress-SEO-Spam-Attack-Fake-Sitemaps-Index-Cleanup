@@ -31,7 +31,7 @@ The client runs a professional security-services business in Canada. A site like
 
 In the hosting panel's analytics, the last 7 days showed **8,063 requests, with 6,875 from the United States**, even though this is a Canadian local business. That traffic mix did not match the real audience.
 
-![Hosting analytics showing abnormal traffic from the US](images/01-analytics-traffic.jpg)
+
 
 ### Step 2: Access log review
 
@@ -42,11 +42,6 @@ Key observations:
 - Response sizes were almost identical (~6,910 to 6,912 bytes), which shows pages generated from **one template**, a classic doorway-page pattern.
 - Crawls came every few minutes, around the clock.
 
-![Access logs: Googlebot crawling spam URLs](images/02-access-logs-googlebot.jpg)
-
-![More spam URLs crawled by Googlebot](images/03-access-logs-spam-urls.jpg)
-
-![Log pagination: 8,063 total requests, mostly spam](images/04-access-logs-pagination.jpg)
 
 ### Step 3: Searching the core files
 
@@ -62,25 +57,20 @@ Since no normal plugin or theme explains URLs like these, we inspected the WordP
 
 `/wp-includes/` is for WordPress core PHP files. It should never hold sitemaps, and certainly not ~9 MB ones. Also note the `shortcodes.php` file modified recently, which was reviewed as part of the code inspection.
 
-![Rogue sitemap files inside wp-includes](images/05-wp-includes-rogue-sitemaps.jpg)
+
 
 ### Step 4: Analysing the fake sitemaps
 
 The fake `sitemap-index.xml` pointed to six sub-sitemaps, all created on the same date (2026-01-18), and all hosted in `/wp-includes/` instead of a normal sitemap location.
 
-![Rogue sitemap index referencing six spam sitemaps](images/08-rogue-sitemap-index.jpg)
 
 Each sub-sitemap was enormous. `sitemap-discover.xml` runs to **over 293,000 lines**, with URLs set to `priority 0.8` and `changefreq weekly` to make Google crawl them aggressively.
 
-![Start of sitemap-discover.xml: spam URLs](images/06-sitemap-discover-start.jpg)
 
-![End of sitemap-discover.xml at line 293,511](images/07-sitemap-discover-293k-lines.jpg)
 
 `sitemap-hype.xml` showed the same structure and the same scale (~293,000 lines).
 
-![Start of sitemap-hype.xml](images/10-sitemap-hype-start.jpg)
 
-![End of sitemap-hype.xml at line 293,487](images/11-sitemap-hype-end.jpg)
 
 **Estimated scale:** each URL entry takes 6 lines of XML, so ~293,000 lines is roughly 49,000 URLs per sitemap. Across six sitemaps that is about **290,000 spam URLs** submitted for indexing on the client's domain.
 
@@ -88,7 +78,7 @@ Each sub-sitemap was enormous. `sitemap-discover.xml` runs to **over 293,000 lin
 
 We also reviewed WordPress users to check for attacker persistence (a rogue admin is a common way attackers regain access after cleanup). Three accounts existed: two Administrators and one Editor. Email addresses are blurred in this report for privacy.
 
-![WordPress users screen, emails blurred](images/09-wp-users-review.jpg)
+
 
 > **[Sam: confirm and edit this section]** State whether any account was unknown/suspicious, and whether you removed it or reset passwords.
 
@@ -170,5 +160,3 @@ We also reviewed WordPress users to check for attacker persistence (a rogue admi
 
 **Blue Heaven Web** provides WordPress malware cleanup, security hardening and ongoing maintenance for clients in the US, UK, EU, Canada and Australia.
 
-- Website: https://blueheavenweb.com
-- LinkedIn: https://www.linkedin.com/in/jitender-s-b29925321/
