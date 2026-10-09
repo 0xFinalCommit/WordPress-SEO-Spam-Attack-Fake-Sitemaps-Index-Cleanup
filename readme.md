@@ -2,7 +2,8 @@
 
 **Site:** protechsecure.ca (Canadian security services website, WordPress)
 **Service:** Malware investigation, cleanup and hardening
-**Done by:** Blue Heaven Web (blueheavenweb.com)
+**Done by:** Mr.Morningstar
+
 
 ---
 
@@ -79,15 +80,11 @@ Each sub-sitemap was enormous. `sitemap-discover.xml` runs to **over 293,000 lin
 We also reviewed WordPress users to check for attacker persistence (a rogue admin is a common way attackers regain access after cleanup). Three accounts existed: two Administrators and one Editor. Email addresses are blurred in this report for privacy.
 
 
-
-> **[Sam: confirm and edit this section]** State whether any account was unknown/suspicious, and whether you removed it or reset passwords.
-
 ---
 
 ## 3. How the Attack Worked
 
 1. **Entry point:** attacker gained write access (typical causes: outdated/vulnerable plugin or theme, weak or leaked credentials, compromised admin account).
-   > **[Sam: add the real entry point if you found it]**
 2. **Injected indexing code** into core files so the site would respond to the fake spam URLs and serve templated adult-content pages.
 3. **Generated massive fake sitemaps** in `/wp-includes/` and registered them so Google would discover and crawl them.
 4. **Googlebot crawled the spam pages**, leading to indexing under the client's trusted domain, which is the real goal: borrowing the domain's authority for the attacker's own rankings.
@@ -106,8 +103,6 @@ We also reviewed WordPress users to check for attacker persistence (a rogue admi
 ---
 
 ## 5. Remediation
-
-> **[Sam: adjust this list to what you actually did]**
 
 1. **Backup first:** full backup of files and database before changes (kept for forensics).
 2. **Removed malicious code** from the core file(s) responsible for generating the spam pages.
@@ -137,8 +132,6 @@ We also reviewed WordPress users to check for attacker persistence (a rogue admi
 
 ## 7. Results
 
-> **[Sam: fill in real numbers if you have them]**
-
 - Spam URLs removed from the site and a clean sitemap submitted
 - Googlebot crawling of spam paths stopped
 - Layout restored and site stable
@@ -156,7 +149,4 @@ We also reviewed WordPress users to check for attacker persistence (a rogue admi
 
 ---
 
-## Need Help With a Hacked WordPress Site?
-
-**Blue Heaven Web** provides WordPress malware cleanup, security hardening and ongoing maintenance for clients in the US, UK, EU, Canada and Australia.
 
